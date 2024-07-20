@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resilient Filipinos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      }
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+      @media (max-width: 768px) {
+        .news-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .header-gradient {
+        background: linear-gradient(90deg, #1e40af, #3b82f6);
+      }
+      .nav-item {
+        transition: all 0.3s ease;
+      }
+      .nav-item:hover {
+        transform: translateY(-2px);
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const dateElement = document.getElementById("current-date");
+        const today = new Date();
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+        const formattedDate = today.toLocaleDateString('en-US', options);
+        dateElement.textContent = formattedDate;
+      });
+    </script>
+  </head>
+  <body class="bg-gray-100">
+    <header class="header-gradient text-white shadow-lg">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <button class="lg:hidden text-2xl">☰</button>
+          <div class="flex items-center space-x-2">
+            <img src="/api/placeholder/50/50" alt="Resilient Filipinos Logo" class="w-10 h-10 rounded-full">
+            <h1 class="text-2xl font-bold">Resilient Filipinos</h1>
+          </div>
+          <div class="flex items-center space-x-4">
+            <span id="current-date" class="hidden md:inline"></span>
+            <button class="bg-white text-blue-600 px-3 py-1 rounded text-sm font-semibold hover:bg-blue-100 transition duration-300">Today's Paper</button>
+            <button class="text-xl">🔍</button>
+          </div>
+        </div>
+        <div class="py-2 overflow-x-auto">
+          <marquee class="text-sm font-bold">Breaking News: Major earthquake hits the Philippines - Government calls for calm and unity</marquee>
+        </div>
+        <nav class="py-2">
+          <ul class="flex space-x-6 overflow-x-auto text-sm">
+            <li><a href="#" class="nav-item hover:underline">NEWS</a></li>
+            <li><a href="#" class="nav-item hover:underline">GLOBAL NATION</a></li>
+            <li><a href="#" class="nav-item hover:underline">BUSINESS</a></li>
+            <li><a href="#" class="nav-item hover:underline">LIFESTYLE</a></li>
+            <li><a href="#" class="nav-item hover:underline">ENTERTAINMENT</a></li>
+            <li><a href="#" class="nav-item hover:underline">TECHNOLOGY</a></li>
+            <li><a href="#" class="nav-item hover:underline">SPORTS</a></li>
+            <li><a href="#" class="nav-item hover:underline">OPINION</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="container mx-auto px-4 py-8">
+      <div class="news-grid">
+        <div class="col-span-2">
+          <article class="bg-white rounded-lg shadow-md overflow-hidden mb-6 hover:shadow-xl transition duration-300">
+            <img src="/api/placeholder/800/400" alt="Main news image" class="w-full h-64 object-cover">
+            <div class="p-4">
+              <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">BUSINESS</span>
+              <h2 class="text-2xl font-bold mt-2">Philippine Economy Shows Resilience Amid Global Challenges</h2>
+              <p class="mt-2 text-gray-600">Analysis of recent economic trends and their impact on the Filipino workforce...</p>
+            </div>
+          </article>
+          <div class="grid grid-cols-2 gap-6">
+            <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+              <img src="/api/placeholder/400/200" alt="Secondary news image" class="w-full h-40 object-cover">
+              <div class="p-4">
+                <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">TECHNOLOGY</span>
+                <h3 class="text-lg font-semibold mt-2">Filipino Tech Startups Making Waves Globally</h3>
+                <p class="mt-2 text-sm text-gray-600">Local innovations gaining international recognition...</p>
+              </div>
+            </article>
+            <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+              <img src="/api/placeholder/400/200" alt="Secondary news image" class="w-full h-40 object-cover">
+              <div class="p-4">
+                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">SPORTS</span>
+                <h3 class="text-lg font-semibold mt-2">Philippine Athletes Prepare for Southeast Asian Games</h3>
+                <p class="mt-2 text-sm text-gray-600">National team intensifies training for upcoming regional competition...</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div>
+          <div class="bg-white rounded-lg shadow-md p-4 mb-6">
+            <h3 class="text-lg font-semibold mb-4">Top Stories</h3>
+            <ul class="space-y-4">
+              <li>
+                <a href="#" class="text-blue-600 hover:underline">New Environmental Policy to Protect Philippine Biodiversity</a>
+              </li>
+              <li>
+                <a href="#" class="text-blue-600 hover:underline">Filipino Scientists Develop Innovative Disaster Response Technology</a>
+              </li>
+              <li>
+                <a href="#" class="text-blue-600 hover:underline">Bayanihan Spirit Shines in Community-led Rehabilitation Projects</a>
+              </li>
+            </ul>
+          </div>
+          <div class="bg-blue-100 rounded-lg p-6 shadow-md">
+            <h4 class="text-lg font-semibold mb-3">Subscribe to Our Newsletter</h4>
+            <p class="text-sm text-gray-600 mb-4">Stay updated with the latest news on Filipino resilience and achievements.</p>
+            <input type="email" placeholder="Enter your email" class="w-full p-2 rounded mb-2 border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded w-full hover:bg-blue-600 transition duration-300">SIGN ME UP</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="bg-gray-800 text-white mt-12 py-8">
+      <div class="container mx-auto text-center">
+        <div class="flex justify-center space-x-6 mb-4">
+          <a href="#" class="text-2xl hover:text-blue-400 transition duration-300"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="text-2xl hover:text-blue-400 transition duration-300"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-2xl hover:text-blue-400 transition duration-300"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-2xl hover:text-blue-400 transition duration-300"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>&copy; 2024 Resilient Filipinos. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
